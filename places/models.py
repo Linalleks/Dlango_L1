@@ -25,17 +25,18 @@ class PlaceImage(models.Model):
         related_name='images'
     )
     image = models.ImageField('Изображение', upload_to='images')
-    position = models.IntegerField('Позиция')
+    position = models.PositiveIntegerField('Позиция', default=0)
+
+    class Meta:
+        verbose_name = 'Фотография'
+        verbose_name_plural = 'Фотографии'
+        ordering = ['position']
+
+    def __str__(self):
+        return f'{self.position} - {self.place.title}'
 
     def image_preview(self):
         if self.image:
             return mark_safe('<img src="{0}" style="max-height: 200px;" />'.format(self.image.url))
         else:
             return '(No image)'
-
-    class Meta:
-        verbose_name = 'Фотография'
-        verbose_name_plural = 'Фотографии'
-
-    def __str__(self):
-        return f'{self.position} - {self.place.title}'
