@@ -23,12 +23,12 @@ class PlaceImage(models.Model):
         on_delete=models.CASCADE,
         related_name='images'
     )
-    position = models.IntegerField('Позиция')
     image = models.ImageField('Изображение', upload_to='images')
+    position = models.IntegerField('Позиция')
 
     class Meta:
-        verbose_name = 'Картинка места'
-        verbose_name_plural = 'Картинки мест'
+        verbose_name = 'Фотография'
+        verbose_name_plural = 'Фотографии'
 
     def __str__(self):
         return f'{self.position} - {self.place.title}'
