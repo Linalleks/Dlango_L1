@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import mark_safe
 
 
 class Place(models.Model):
@@ -25,6 +26,12 @@ class PlaceImage(models.Model):
     )
     image = models.ImageField('Изображение', upload_to='images')
     position = models.IntegerField('Позиция')
+
+    def image_preview(self):
+        if self.image:
+            return mark_safe('<img src="{0}" style="max-height: 200px;" />'.format(self.image.url))
+        else:
+            return '(No image)'
 
     class Meta:
         verbose_name = 'Фотография'
