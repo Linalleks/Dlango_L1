@@ -3,3 +3,4 @@ django-admin-sortable2~=2.3.1
 django-tinymce==5.*
 environs==15.1.*
 Pillow==12.3.*
+requests~=2.34.2
