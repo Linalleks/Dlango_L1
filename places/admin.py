@@ -1,5 +1,5 @@
+from adminsortable2.admin import SortableAdminBase, SortableTabularInline
 from django.contrib import admin
-from adminsortable2.admin import SortableTabularInline, SortableAdminBase
 
 from .models import Place, PlaceImage
 

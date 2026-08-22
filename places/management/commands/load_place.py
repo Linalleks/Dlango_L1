@@ -1,9 +1,11 @@
-from django.core.management.base import BaseCommand
-from django.core.exceptions import MultipleObjectsReturned
 import json
-import requests
-from places.models import Place, PlaceImage
 from io import BytesIO
+
+import requests
+from django.core.exceptions import MultipleObjectsReturned
+from django.core.management.base import BaseCommand
+
+from places.models import Place, PlaceImage
 
 
 class Command(BaseCommand):
