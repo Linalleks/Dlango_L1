@@ -27,11 +27,11 @@ class Command(BaseCommand):
                 lat=place_properties['coordinates']['lat'],
                 lng=place_properties['coordinates']['lng'],
                 defaults={
-                    "title": place_properties['title'],
-                    "short_description": place_properties['description_short'],
-                    "long_description": place_properties['description_long'],
-                    "lat": place_properties['coordinates']['lat'],
-                    "lng": place_properties['coordinates']['lng'],
+                    'title': place_properties['title'],
+                    'short_description': place_properties['description_short'],
+                    'long_description': place_properties['description_long'],
+                    'lat': place_properties['coordinates']['lat'],
+                    'lng': place_properties['coordinates']['lng'],
                 }
             )
             if created:
@@ -56,4 +56,4 @@ class Command(BaseCommand):
         except Exception as e:
             print(f'Неожиданная ошибка: {e}')
         except MultipleObjectsReturned:
-            print(f"Найдено несколько объектов для {place_properties}.")
+            print(f'Найдено несколько объектов для {place_properties}.')
