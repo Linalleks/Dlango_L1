@@ -43,6 +43,9 @@ class PlaceImage(models.Model):
 
     def image_preview(self):
         if self.image:
-            return mark_safe('<img src="{0}" style="max-height: 200px;" />'.format(self.image.url))
+            return format_html(
+                '<img src="{}" style="max-height: 200px; max-width: 300px;" />',
+                mark_safe(self.image.url)
+            )
         else:
             return '(No image)'
