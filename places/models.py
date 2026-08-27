@@ -1,5 +1,6 @@
 from django.db import models
-from django.utils.html import mark_safe
+from django.utils.safestring import mark_safe
+from django.utils.html import format_html
 from tinymce.models import HTMLField
 
 
@@ -33,6 +34,9 @@ class PlaceImage(models.Model):
         verbose_name = 'Фотография'
         verbose_name_plural = 'Фотографии'
         ordering = ['position']
+        indexes = [
+            models.Index(fields=["position"]),
+        ]
 
     def __str__(self):
         return f'{self.position} - {self.place.title}'
