@@ -28,8 +28,8 @@ class Command(BaseCommand):
                 lng=place_properties['coordinates']['lng'],
                 defaults={
                     "title": place_properties['title'],
-                    "description_short": place_properties['description_short'],
-                    "description_long": place_properties['description_long'],
+                    "short_description": place_properties['description_short'],
+                    "long_description": place_properties['description_long'],
                     "lat": place_properties['coordinates']['lat'],
                     "lng": place_properties['coordinates']['lng'],
                 }

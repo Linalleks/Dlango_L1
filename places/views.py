@@ -9,8 +9,8 @@ def serialize_place(place):
     images = place.images.all()
     return {
         'title': place.title,
-        'description_short': place.description_short,
-        'description_long': place.description_long,
+        'short_description': place.short_description,
+        'long_description': place.long_description,
         'lat': place.lat,
         'lng': place.lng,
         'images': [serialize_image(image) for image in images],
@@ -56,8 +56,8 @@ def get_place(request, place_id):
     format_place_data = {
         "title": place.title,
         "imgs": [request.build_absolute_uri(image.image.url) for image in images],
-        "description_short": place.description_short,
-        "description_long": place.description_long,
+        "short_description": place.short_description,
+        "long_description": place.long_description,
         "coordinates": {
             'lng': place.lng,
             'lat': place.lat,
